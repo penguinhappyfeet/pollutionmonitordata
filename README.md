@@ -4,6 +4,7 @@ Write a function named `pollutantmean` that calculates the mean of a pollutant (
 * `directory` 
 * `pollutant` 
 * `id`
+
 Given a vector monitors ID numbers, `pollutantmean` reads that monitors particulate-matter-data from the directory specified in the `directory` argument and returns the mean of the pollutant across all of the monitors, ignoring any missing values coded as NA. 
 
 A prototype of the function is as follows: 
