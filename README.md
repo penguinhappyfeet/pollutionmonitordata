@@ -47,5 +47,17 @@ read.csv(directory[1])$sulfate
 
 ```
 
+```{r}
+source("pollutantmean.R")
+pollutantmean("specdata", "sulfate", 1:10)
+```
+## [1] 4.064
 
+```{r}
+pollutantmean("specdata", "nitrate", 70:72)
+```
+## [1] 1.706
 
+```{r}
+pollutantmean("specdata", "nitrate", 23)
+```
