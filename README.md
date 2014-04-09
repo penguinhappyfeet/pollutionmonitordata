@@ -61,3 +61,4 @@ pollutantmean("specdata", "nitrate", 70:72)
 ```{r}
 pollutantmean("specdata", "nitrate", 23)
 ```
+## [1] 1.281
