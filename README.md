@@ -1,5 +1,4 @@
-pollutionmonitordata - programming assignment 1 coursera
-========================================================
+#pollutionmonitoringdata
 
 Write a function named 
 * 'pollutantmean' 
