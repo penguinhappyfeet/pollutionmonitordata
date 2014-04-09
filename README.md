@@ -86,8 +86,11 @@ complete <- function(directory, id = 1:332) {
 source("complete.R")
 complete("specdata", 1)
 ```
+
+```
 ##   id nobs
 ## 1  1  117
+```
 
 ```{r}
 complete("specdata", c(2, 4, 8, 10, 12))
