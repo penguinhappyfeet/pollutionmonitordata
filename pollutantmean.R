@@ -1,5 +1,5 @@
 # First Line
-#setwd("~/Downloads/pollutionmonitordata/")
+setwd("~/Downloads/pollutionmonitordata/")
 pollutantmean <- function (
         directory = "specdata", 
         pollutant = "sulfate", 
@@ -29,3 +29,4 @@ pollutantmean("specdata", "nitrate", 70:72)
 ## [1] 1.706
 pollutantmean("specdata", "nitrate", 23)
 ## [1] 1.281
+
