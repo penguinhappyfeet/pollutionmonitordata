@@ -1,9 +1,9 @@
 # First Line
-# setwd("~/Downloads/pollutionmonitordata/")
+setwd("~/Downloads/pollutionmonitordata/")
 
 pollutantmean <- function (
         directory = "~/Downloads/pollutionmonitordata/specdata/", 
-        pollutant = "pollutant", 
+        pollutant = "sulfate", 
         id = 101) {
         
         setwd(directory)
@@ -11,9 +11,14 @@ pollutantmean <- function (
         filenames<-as.character( list.files() )
         directory<-paste( directory, filenames, sep="" )
         
-        files <- read.csv(directory[id])
+        loadfile <- read.csv(directory[id])
         
-        return( head(files) )
+        result <- loadfile[,pollutant]
+        
+        valid <- result[!is.na(result)]
+        
+        return( mean(valid) )
 }
 
-
+a <- pollutantmean(id = 155)
+a
