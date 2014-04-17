@@ -1,6 +1,4 @@
 # First Line
-setwd("~/Downloads/pollutionmonitordata/")
-
 complete <- function(
         directory = "specdata", 
         id = 1:332) {
