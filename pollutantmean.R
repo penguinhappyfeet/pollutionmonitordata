@@ -5,19 +5,15 @@ pollutantmean <- function (
         directory = "specdata", 
         pollutant = "sulfate", 
         id = 101) {
-        
         #initialize variable to hold data from pollutant column
         filemeans <- c()
+        #initialize file directory
         root <- "~/Downloads/pollutionmonitordata/"
         directory <- paste( root, directory, "/", sep="" )
         setwd( directory )
-        
-        #storing all files by name in directory in list
+        #UNIX pathname to all files
         filenames <- as.character( list.files() )
-        
-        #this is the UNIX pathname to all files in filenames
         filepaths <- paste( directory, filenames, sep="" )
-        
         #iterate through files and store data in filemeans
         for(i in id) {
                 loadfile <- read.csv( filepaths[i] )
@@ -25,8 +21,6 @@ pollutantmean <- function (
                 valid <- result[ !is.na( result ) ]
                 filemeans <- c(filemeans, valid )
         }
-        
-        #return mean of data across all files
         return( mean( filemeans ) )
 }
 

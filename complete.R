@@ -3,9 +3,32 @@ setwd("~/Downloads/pollutionmonitordata/")
 
 complete <- function(
         directory = "specdata", 
-        id = 1:332
-        ) {
-        
+        id = 1:332) {
+        #initialize variable to store complete cases
+        complete <- c()
+        #initialize file directory
+        root <- "~/Downloads/pollutionmonitordata/"
+        directory <- paste( root, directory, "/", sep="" )
+        setwd( directory )
+        #initialize file list
+        filenames <- as.character( list.files() )
+        filepaths <- paste( directory, filenames, sep="" )
+        filelist <- filepaths[ id ]
+        #iterate on filelist using id parameter
+        for(i in id) {
+                loadfile <- read.csv( filepaths[i] )
+                sulfate <- loadfile$sulfate
+                nitrate <- loadfile$nitrate
+                valid <- sum( complete.cases(sulfate, nitrate) )
+                complete <- c(complete, valid)
+        }
+        #construct the table of complete cases
+        cases <- cbind( 
+                c( 1:length( filelist ) ), 
+                id, 
+                complete 
+        )
+        return(cases)
         
 }
 
