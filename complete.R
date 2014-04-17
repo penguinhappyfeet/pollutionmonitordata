@@ -1,4 +1,5 @@
 # First Line
+
 complete <- function(
         directory = "specdata", 
         id = 1:332) {
@@ -56,3 +57,4 @@ complete("specdata", 30:25)
 complete("specdata", 3)
 ##   id nobs
 ## 1  3  243
+
