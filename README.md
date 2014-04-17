@@ -25,21 +25,6 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
 ```
 
 ```{r}
-#Root directory of repo where csv files are stored
-csv_repository<-"~/Downloads/pollutionmonitordata/specdata/"
-setwd(csv_repository)
-
-#Vector of filenames in the directory
-filenames<-as.character(list.files())
-
-#Concatenate root directory to each file
-directory<-paste(csv_repository,filenames,sep="")
-
-read.csv(directory[1])$sulfate
-
-```
-
-```{r}
 source("pollutantmean.R")
 pollutantmean("specdata", "sulfate", 1:10)
 ```
