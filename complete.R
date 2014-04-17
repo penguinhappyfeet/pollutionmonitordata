@@ -23,6 +23,7 @@ complete <- function(
                 complete <- c(complete, valid)
         }
         #construct the table of complete cases
+        cases <- c()
         cases <- cbind( 
                 c( 1:length( filelist ) ), 
                 id, 

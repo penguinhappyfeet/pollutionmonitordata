@@ -1,24 +1,18 @@
 # First Line
+setwd("~/Downloads/pollutionmonitordata/")
 
-directory = "~/Downloads/pollutionmonitordata/specdata/"
-id <- c(1:3)
-complete <- c()
+directory = "specdata"
+threshold = 5000
+#initialize file directory
+root <- "~/Downloads/pollutionmonitordata/"
+directory <- paste( root, directory, "/", sep="" )
+setwd( directory )
+#UNIX pathname to all files
 filenames <- as.character( list.files() )
 filepaths <- paste( directory, filenames, sep="" )
-filelist <- filepaths[ id ]
+#initialize complete cases
+filecount <- length( list.files() )
+cases <- complete(directory, id = 1:filecount)
 
-for(i in id) {
-        loadfile <- read.csv( filepaths[i] )
-        sulfate <- loadfile$sulfate
-        nitrate <- loadfile$nitrate
-        valid <- sum( complete.cases(sulfate, nitrate) )
-        complete <- c(complete, valid)
-}
-
-a <- cbind( 
-        c( 1:length( filelist ) ), 
-        id, 
-        complete 
-)
-
-a
+valid <- cases[,3]>=threshold
+cases[,3][valid]
